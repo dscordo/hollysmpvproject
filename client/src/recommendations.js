@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState} from "react";
+import { useParams, Link } from 'react-router-dom';
 
-export default function getReccos() {
+
+export default function Recommendations() {
+  let { film_id } = useParams();
   const [recommendations, setRecommendations] = useState([]);
   async function getReccos(recommendations) {
-  setLoading(true);
   console.log("this is working");
   const appId = "df18e230169160c88b27ae6a222d9b10";
   const recommendsUrl =
-    `https://api.themoviedb.org/3/movie/${film.id}/recommendations?api_key=df18e230169160c88b27ae6a222d9b10&language=en-US&page=1`;
+    `https://api.themoviedb.org/3/movie/${film_id}/recommendations?api_key=df18e230169160c88b27ae6a222d9b10&language=en-US&page=1`;
   
     try {
       let response = await fetch(recommendsUrl)
@@ -15,6 +17,7 @@ export default function getReccos() {
       if (response.ok) {
         let data = await response.json();
         console.log(data);
+        setRecommendations(data.results);
       } else {
         console.log(`server error: ${response.status} ${response.statusText}`);
       }
@@ -34,9 +37,11 @@ return (
       recommendations.map(film => (
         <div key = {film.id}>
         <img src = {`https://image.tmdb.org/t/p/original${film.poster_path}`} />
+        <Link to={`/recommendations/${film.id}`}>
         <button>
           {film.title}
         </button>
+        </Link>
         </div>
       ))
     }

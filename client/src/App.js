@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import HomePage from "./HomePage";
+import Recommendations from "./Recommendations";
+
 
 export default function App() {
   return (
     <div>
-      <HomePage />
+      <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/recommendations/:film_id" element={<Recommendations />} />
+      </Routes>
     </div>
   );
 }

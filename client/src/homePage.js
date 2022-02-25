@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./App.css";
 
 export default function App() {
@@ -39,7 +40,9 @@ export default function App() {
       {filmList.map((film) => (
         <div key={film.id}>
           <img src={`https://image.tmdb.org/t/p/original${film.poster_path}`} />
+          <Link to={`/recommendations/${film.id}`}>
           <button>{film.title}</button>
+          </Link>
         </div>
       ))}
     </div>
