@@ -28,7 +28,7 @@ export default function Recommendations() {
 
 useEffect(() => {
   getReccos()
-}, []);
+}, [film_id]);
 
 console.log(recommendations);
 return (
@@ -42,6 +42,7 @@ return (
           {film.title}
         </button>
         </Link>
+        <button>Add to watchlist</button>
         </div>
       ))
     }

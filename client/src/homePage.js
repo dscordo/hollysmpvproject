@@ -37,12 +37,16 @@ export default function App() {
   console.log(filmList);
   return (
     <div>
+      <div>
+        <h3>If you've watched (and liked!) any of these films, please click on the thumbnail to see further recommendations.</h3>
+      </div>
       {filmList.map((film) => (
         <div key={film.id}>
           <img src={`https://image.tmdb.org/t/p/original${film.poster_path}`} />
           <Link to={`/recommendations/${film.id}`}>
           <button>{film.title}</button>
           </Link>
+          <button>Add to watchlist</button>
         </div>
       ))}
     </div>
