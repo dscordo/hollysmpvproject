@@ -40,15 +40,20 @@ export default function App() {
       <div>
         <h3>If you've watched (and liked!) any of these films, please click on the thumbnail to see further recommendations.</h3>
       </div>
+      <div class="row row-cols-3 row-cols-md-3 g-20">
       {filmList.map((film) => (
-        <div key={film.id}>
-          <img src={`https://image.tmdb.org/t/p/original${film.poster_path}`} />
+          <div class="col">
+        <div class="card text-center h-100" key={film.id}>
+          <img class="card-img-top" src={`https://image.tmdb.org/t/p/original${film.poster_path}`} />
+          <h5 class="card-title">{film.title}</h5>
+          <p class="card-title">{film.overview}</p>
           <Link to={`/recommendations/${film.id}`}>
-          <button>{film.title}</button>
+          <a href="`/recommendations/${film.id}`" class="btn btn-primary">Watched!</a>
           </Link>
-          <button>Add to watchlist</button>
+        </div>
         </div>
       ))}
+      </div>
     </div>
   );
 }

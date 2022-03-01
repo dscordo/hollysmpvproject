@@ -3,8 +3,14 @@ import { useParams, Link } from 'react-router-dom';
 
 
 export default function Recommendations() {
+  const handleSubmit = (film) => {
+    console.log(film);
+    addToWatchlist(film);
+    console.log('this is working');
+  }
   let { film_id } = useParams();
   const [recommendations, setRecommendations] = useState([]);
+  const [filmToAdd, setFilmToAdd] = useState([]);
   async function getReccos(recommendations) {
   console.log("this is working");
   const appId = "df18e230169160c88b27ae6a222d9b10";
@@ -30,22 +36,51 @@ useEffect(() => {
   getReccos()
 }, [film_id]);
 
+async function addToWatchlist(film) {
+  let filmObj = {FilmID: film.id, Title: film.title, PosterURL: film.poster_path};
+  let options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(filmObj)
+  };
+  let data = null;
+  console.log(filmObj);
+  try {
+    let response = await fetch("/watchlist", options);
+    if (response.ok) {
+      data = await response.json();
+      setFilmToAdd(data);
+    } else {
+      console.log("server error:", response.statusText);
+    }
+  } catch (e) {
+    console.log("network error:", e.message);
+  } return data;
+}
+
+
 console.log(recommendations);
 return (
   <div>
+    <div class="row row-cols-3 row-cols-md-3 g-20">
     {
       recommendations.map(film => (
-        <div key = {film.id}>
-        <img src = {`https://image.tmdb.org/t/p/original${film.poster_path}`} />
+        <div class="col">
+        <div class="card text-center h-100" key = {film.id}>
+        <img class="card-img-top" src = {`https://image.tmdb.org/t/p/original${film.poster_path}`} />
+        <h5 class="card-title">{film.title}</h5>
+        <p class="card-title">{film.overview}</p>
         <Link to={`/recommendations/${film.id}`}>
-        <button>
-          {film.title}
-        </button>
+        <a href="`/recommendations/${film.id}`" class="btn btn-primary">Watched!</a>
         </Link>
-        <button>Add to watchlist</button>
+        <button class="btn btn-primary" onClick={() => handleSubmit(film)}>Add to watchlist</button>
+        </div>
         </div>
       ))
     }
+    </div>
   </div>
 )
 
