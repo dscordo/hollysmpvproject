@@ -34,7 +34,7 @@ export default function HomePage() {
     getMovies();
   }, []);
 
-  console.log(filmList);
+  
   return (
     <div>
       <div>
@@ -45,11 +45,13 @@ export default function HomePage() {
           <div className="col my-3">
         <div className="card text-center h-100" key={film.id}>
           <img className="card-img-top" src={`https://image.tmdb.org/t/p/original${film.poster_path}`} />
+          <div className="card-body">
           <h5 className="card-title">{film.title}</h5>
           <p className="card-body">{film.overview}</p>
           <Link to={`/recommendations/${film.id}`}>
-          <a href="`/recommendations/${film.id}`" className="btn btn-primary my-2">Watched!</a>
+          <a href="`/recommendations/${film.id}`" className="btn btn-primary my-2 btn-outline-light" style={{ backgroundColor: '#b366ff' }}>Watched!</a>
           </Link>
+        </div>
         </div>
         </div>
       ))}
