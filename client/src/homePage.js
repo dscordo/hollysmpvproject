@@ -40,15 +40,15 @@ export default function HomePage() {
       <div>
         <h3>If you've watched (and liked!) any of these films, please click on the thumbnail to see further recommendations.</h3>
       </div>
-      <div class="row row-cols-3 row-cols-md-3 g-20">
+      <div className="row row-cols-3 row-cols-md-3 g-20">
       {filmList.map((film) => (
-          <div class="col">
-        <div class="card text-center h-100" key={film.id}>
-          <img class="card-img-top" src={`https://image.tmdb.org/t/p/original${film.poster_path}`} />
-          <h5 class="card-title">{film.title}</h5>
-          <p class="card-title">{film.overview}</p>
+          <div className="col my-3">
+        <div className="card text-center h-100" key={film.id}>
+          <img className="card-img-top" src={`https://image.tmdb.org/t/p/original${film.poster_path}`} />
+          <h5 className="card-title">{film.title}</h5>
+          <p className="card-title">{film.overview}</p>
           <Link to={`/recommendations/${film.id}`}>
-          <a href="`/recommendations/${film.id}`" class="btn btn-primary">Watched!</a>
+          <a href="`/recommendations/${film.id}`" className="btn btn-primary my-2">Watched!</a>
           </Link>
         </div>
         </div>
