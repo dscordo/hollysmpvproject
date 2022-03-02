@@ -12,7 +12,7 @@ return (
             <div className="collapse navbar-collapse" id="navbarNav"> 
         <ul className="navbar-nav">
             <li className="nav-item"><NavLink to="/" className="nav-link">Home</NavLink></li>
-            <li className="nav-item"><NavLink to="/watchlist" className="nav-link">Watch List</NavLink></li>
+            <li className="nav-item"><NavLink to="/watchlist" className="nav-link">WatchList</NavLink></li>
         </ul>
         </div>
         </div>

@@ -63,19 +63,23 @@ async function addToWatchlist(film) {
 
 console.log(recommendations);
 return (
-  <div>
+  <div className="recommendations">
     <div class="row row-cols-3 row-cols-md-3 g-20">
     {
       recommendations.map(film => (
-        <div class="col">
+        <div class="col my-3">
         <div class="card text-center h-100" key = {film.id}>
         <img class="card-img-top" src = {`https://image.tmdb.org/t/p/original${film.poster_path}`} />
+        <div class="card-body">
         <h5 class="card-title">{film.title}</h5>
-        <p class="card-title">{film.overview}</p>
+        <p class="card-body">{film.overview}</p>
+        </div>
+        <div class="card-body">
         <Link to={`/recommendations/${film.id}`}>
-        <a href="`/recommendations/${film.id}`" class="btn btn-primary">Watched!</a>
+        <a type="button" href="`/recommendations/${film.id}`" class="btn btn-primary my-2 mx-1">Watched!</a>
         </Link>
-        <button class="btn btn-primary" onClick={() => handleSubmit(film)}>Add to watchlist</button>
+        <a type="button" className="btn btn-primary mx-1" onClick={() => handleSubmit(film)}>Add to WatchList</a>
+        </div>
         </div>
         </div>
       ))

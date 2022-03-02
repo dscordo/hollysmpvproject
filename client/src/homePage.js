@@ -46,7 +46,7 @@ export default function HomePage() {
         <div className="card text-center h-100" key={film.id}>
           <img className="card-img-top" src={`https://image.tmdb.org/t/p/original${film.poster_path}`} />
           <h5 className="card-title">{film.title}</h5>
-          <p className="card-title">{film.overview}</p>
+          <p className="card-body">{film.overview}</p>
           <Link to={`/recommendations/${film.id}`}>
           <a href="`/recommendations/${film.id}`" className="btn btn-primary my-2">Watched!</a>
           </Link>
