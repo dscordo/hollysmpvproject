@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./App.css";
 
-export default function App() {
+export default function HomePage() {
   const [loading, setLoading] = useState(false);
   const [filmList, setfilmList] = useState([]);
 
@@ -56,4 +56,5 @@ export default function App() {
       </div>
     </div>
   );
-}
+};
+
