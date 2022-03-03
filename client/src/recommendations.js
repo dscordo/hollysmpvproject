@@ -76,9 +76,9 @@ return (
         </div>
         <div class="card-body">
         <Link to={`/recommendations/${film.id}`}>
-        <a type="button" href="`/recommendations/${film.id}`" class="btn btn-primary my-2 mx-1 btn-outline-light" style={{ backgroundColor: '#b366ff' }}>Watched!</a>
+        <a type="button" href="`/recommendations/${film.id}`" class="btn btn-primary my-2 mx-1 btn-outline-light" style={{ backgroundColor: '#b30000' }}>Watched!</a>
         </Link>
-        <a type="button" className="btn btn-primary mx-1 btn-outline-light" style={{ backgroundColor: '#b366ff' }} onClick={() => handleSubmit(film)}>Add to WatchList</a>
+        <a type="button" className="btn btn-primary mx-1 btn-outline-light" style={{ backgroundColor: '#b30000' }} onClick={() => handleSubmit(film)}>Add to WatchList</a>
         </div>
         </div>
         </div>

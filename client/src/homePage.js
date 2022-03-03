@@ -37,9 +37,8 @@ export default function HomePage() {
   
   return (
     <div>
-      <div>
+      <div className="container-sm">
         <h3>If you've watched (and liked!) any of these films, please click on the thumbnail to see further recommendations.</h3>
-      </div>
       <div className="row row-cols-3 row-cols-md-3 g-20">
       {filmList.map((film) => (
           <div className="col my-3">
@@ -48,13 +47,15 @@ export default function HomePage() {
           <div className="card-body">
           <h5 className="card-title">{film.title}</h5>
           <p className="card-body">{film.overview}</p>
+          </div>
           <Link to={`/recommendations/${film.id}`}>
-          <a href="`/recommendations/${film.id}`" className="btn btn-primary my-2 btn-outline-light" style={{ backgroundColor: '#b366ff' }}>Watched!</a>
+          <a href="`/recommendations/${film.id}`" className="btn btn-primary my-2 btn-outline-light" style={{ backgroundColor: '#b30000' }}>Watched!</a>
           </Link>
-        </div>
+        
         </div>
         </div>
       ))}
+      </div>
       </div>
     </div>
   );
