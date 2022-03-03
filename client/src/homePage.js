@@ -1,26 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./App.css";
+import FeaturedFilm from "./components/FeaturedFilm";
 
 export default function HomePage() {
   const [loading, setLoading] = useState(false);
   const [filmList, setfilmList] = useState([]);
+  const [featured, setFeatured] = useState(false);
+  const [filmData, setfilmData] = useState([]);
+ 
 
   async function getMovies(filmList) {
     setLoading(true);
     // setError("Error, try again");
 
-    console.log("this is working");
+    
     const appId = "df18e230169160c88b27ae6a222d9b10";
     const topRatedFilmUrl =
       "https://api.themoviedb.org/3/movie/top_rated?api_key=df18e230169160c88b27ae6a222d9b10&language=en-US&page=1";
 
     try {
       let response = await fetch(topRatedFilmUrl);
-      console.log(response);
       if (response.ok) {
         let data = await response.json();
-        console.log(data);
         setfilmList(data.results);
       } else {
         console.log(`server error: ${response.status} ${response.statusText}`);
@@ -34,9 +36,14 @@ export default function HomePage() {
     getMovies();
   }, []);
 
+  function showFilm(film) {
+    console.log(film);
+    setfilmData(film);
+    setFeatured(true);
+  }
   
   return (
-    <div>
+    <div className="homepage">
       <div className="container-sm">
         <h3>If you've watched (and liked!) any of these films, please click on the thumbnail to see further recommendations.</h3>
       <div className="row row-cols-3 row-cols-md-3 g-20">
@@ -52,13 +59,18 @@ export default function HomePage() {
           <Link to={`/recommendations/${film.id}`}>
           <a href="`/recommendations/${film.id}`" className="btn btn-primary my-2 btn-outline-light" style={{ backgroundColor: '#b30000' }}>Watched!</a>
           </Link>
+          <a onClick={ () => showFilm(film) } className="btn btn-primary my-2 btn-outline-light" style={{ backgroundColor: '#b30000' }}>More info</a>
           </div>
         </div>
         </div>
       ))}
       </div>
       </div>
+      { featured === true ? <FeaturedFilm featFilm={ filmData }/> : '' }
+     
     </div>
+    
   );
 };
 
+// hide={setFeatured(false)}

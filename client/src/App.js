@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import HomePage from "./homePage";
 import Recommendations from "./recommendations";
 import Watchlist from "./Watchlist";
-import FeaturedFilm from "./components/FeaturedFilm";
+
 
 
 export default function App() {
