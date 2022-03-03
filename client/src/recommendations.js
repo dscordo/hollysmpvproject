@@ -74,7 +74,7 @@ return (
         <h5 class="card-title">{film.title}</h5>
         <p class="card-body">{film.overview}</p>
         </div>
-        <div class="card-body">
+        <div class="card-footer">
         <Link to={`/recommendations/${film.id}`}>
         <a type="button" href="`/recommendations/${film.id}`" class="btn btn-primary my-2 mx-1 btn-outline-light" style={{ backgroundColor: '#b30000' }}>Watched!</a>
         </Link>

@@ -48,10 +48,11 @@ export default function HomePage() {
           <h5 className="card-title">{film.title}</h5>
           <p className="card-body">{film.overview}</p>
           </div>
+          <div className="card-footer">
           <Link to={`/recommendations/${film.id}`}>
           <a href="`/recommendations/${film.id}`" className="btn btn-primary my-2 btn-outline-light" style={{ backgroundColor: '#b30000' }}>Watched!</a>
           </Link>
-        
+          </div>
         </div>
         </div>
       ))}
