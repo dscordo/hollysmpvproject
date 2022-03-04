@@ -66,11 +66,10 @@ export default function HomePage() {
       ))}
       </div>
       </div>
-      { featured === true ? <FeaturedFilm featFilm={ filmData }/> : '' }
+      { featured === true ? <FeaturedFilm featFilm={ filmData } hide={() => setFeatured(false)}/> : '' }
      
     </div>
     
   );
 };
 
-// hide={setFeatured(false)}

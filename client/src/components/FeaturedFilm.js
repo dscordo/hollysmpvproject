@@ -5,7 +5,7 @@ export default function FeaturedFilm(props) {
     let f = props.featFilm;
 return (
     <div className="FeaturedFilm">
-      <div className="modal show fade">
+      <div className="modal" tabindex="-1" style={{ display: 'block' }}>
         <div className="modal-dialog">
         <div className="modal-content">
         <div className="modal-header">
