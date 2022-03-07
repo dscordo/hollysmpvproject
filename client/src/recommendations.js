@@ -73,7 +73,7 @@ function showFilm(film) {
 console.log(recommendations);
 return (
   <div className="recommendations">
-    <div class="row row-cols-3 row-cols-md-3 g-20">
+    <div class="row row-cols-md-3 g-20">
     {
       recommendations.map(film => (
         <div class="col my-3">

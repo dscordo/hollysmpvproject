@@ -1,8 +1,17 @@
-import React from "react";
-// import getProviders from "../../helpers/getproviders";
+import React, { useEffect, useState } from "react";
+import getProviders from "../helpers/getproviders";
+
 
 export default function FeaturedFilm(props) {
-    let f = props.featFilm;
+  let f = props.featFilm;
+
+  useEffect(() => {
+   getProviders()
+      }, [])
+
+
+      
+    
     return (
     <div className="FeaturedFilm">
       <div className="modal" tabindex="-1" style={{ display: 'block' }}>

@@ -37,7 +37,6 @@ export default function HomePage() {
   }, []);
 
   function showFilm(film) {
-    console.log(film);
     setfilmData(film);
     setFeatured(true);
   }
@@ -46,7 +45,7 @@ export default function HomePage() {
     <div className="homepage">
       <div className="container">
         <h3>If you've watched (and liked!) any of these films, please click on the thumbnail to see further recommendations.</h3>
-      <div className="row row-cols-3 row-cols-md-3 g-20">
+      <div className="row row-cols-md-3 g-20">
       {filmList.map((film) => (
           <div className="col my-3">
         <div className="card text-center h-100" key={film.id}>
