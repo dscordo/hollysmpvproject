@@ -1,8 +1,12 @@
 import React, { useEffect, useState} from "react";
 import { useParams, Link } from 'react-router-dom';
+import RecModal from "./components/RecModal";
 
 
 export default function Recommendations() {
+  const [featured, setFeatured] = useState(false);
+  const [filmData, setfilmData] = useState([]);
+
   const handleSubmit = (film) => {
     console.log(film);
     addToWatchlist(film);
@@ -60,6 +64,11 @@ async function addToWatchlist(film) {
   } return data;
 }
 
+function showFilm(film) {
+  console.log(film);
+  setfilmData(film);
+  setFeatured(true);
+}
 
 console.log(recommendations);
 return (
@@ -72,19 +81,21 @@ return (
         <img class="card-img-top" src = {`https://image.tmdb.org/t/p/original${film.poster_path}`} />
         <div class="card-body">
         <h5 class="card-title">{film.title}</h5>
-        <p class="card-body">{film.overview}</p>
+        {/* <p class="card-body">{film.overview}</p> */}
         </div>
         <div class="card-footer">
         <Link to={`/recommendations/${film.id}`}>
         <a type="button" href="`/recommendations/${film.id}`" class="btn btn-primary my-2 mx-1 btn-outline-light" style={{ backgroundColor: '#b30000' }}>Watched!</a>
         </Link>
         <a type="button" className="btn btn-primary mx-1 btn-outline-light" style={{ backgroundColor: '#b30000' }} onClick={() => handleSubmit(film)}>Add to WatchList</a>
+        <a onClick={ () => showFilm(film) } className="btn btn-primary my-2 btn-outline-light" style={{ backgroundColor: '#b30000' }}>More info</a>
         </div>
         </div>
         </div>
       ))
     }
     </div>
+    { featured === true ? <RecModal recFilm={ filmData } hide={() => setFeatured(false)}/> : '' }
   </div>
 )
 

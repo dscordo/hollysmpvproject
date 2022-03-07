@@ -1,10 +1,9 @@
 import React from "react";
-// import getProviders from "../../helpers/getproviders";
 
-export default function FeaturedFilm(props) {
-    let f = props.featFilm;
+export default function RecModal (props) {
+    let f = props.recFilm;
     return (
-    <div className="FeaturedFilm">
+    <div className="recmodal">
       <div className="modal" tabindex="-1" style={{ display: 'block' }}>
         <div className="modal-dialog">
         <div className="modal-content">
