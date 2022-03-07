@@ -19,7 +19,7 @@ return (
       <div className="row">
       
           <div className="col-8 col-sm-6">
-          <img className="rounded float-start" style={{ width: '100px' }} src={`https://image.tmdb.org/t/p/original${f.poster_path}`} alt="" />
+          <img className="rounded float-start" style={{ width: '200px' }} src={`https://image.tmdb.org/t/p/original${f.poster_path}`} alt="" />
           </div>
           <div className="col-4 col-sm-6">
           <p>{f.overview}</p>

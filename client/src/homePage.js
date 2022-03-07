@@ -44,7 +44,7 @@ export default function HomePage() {
   
   return (
     <div className="homepage">
-      <div className="container-sm">
+      <div className="container">
         <h3>If you've watched (and liked!) any of these films, please click on the thumbnail to see further recommendations.</h3>
       <div className="row row-cols-3 row-cols-md-3 g-20">
       {filmList.map((film) => (
