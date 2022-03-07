@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./App.css";
-import FeaturedFilm from "./components/FeaturedFilm";
+import HomeModal from "./components/HomeModal";
 
 export default function HomePage() {
   const [loading, setLoading] = useState(false);
@@ -65,7 +65,7 @@ export default function HomePage() {
       ))}
       </div>
       </div>
-      { featured === true ? <FeaturedFilm featFilm={ filmData } hide={() => setFeatured(false)}/> : '' }
+      { featured === true ? <HomeModal featFilm={ filmData } hide={() => setFeatured(false)}/> : '' }
      
     </div>
     

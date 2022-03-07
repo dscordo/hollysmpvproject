@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import getProviders from "../helpers/getproviders";
 
 
-export default function FeaturedFilm(props) {
+export default function HomeModal(props) {
+  const [prov, setProv] = useState([]);
   let f = props.featFilm;
 
-  useEffect(() => {
-   getProviders()
-      }, [])
+  useEffect ( async () => {
+   let result = await getProviders(f)
+   setProv(result.flatrate);
+      }, []);
 
-
+      
       
     
     return (
@@ -32,12 +34,17 @@ export default function FeaturedFilm(props) {
           </div>
           <div className="col-4 col-sm-6">
           <p>{f.overview}</p>
+          <h6>Available in the following UK streaming platforms:</h6>
+        <ul>
+          {prov.map(p => <li key={p.id}>{p.provider_name}</li>)}
+        </ul>
           </div>
       
       </div>
       </div>
 
       </div>
+      
      </div>
      </div>
      </div>

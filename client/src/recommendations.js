@@ -8,15 +8,12 @@ export default function Recommendations() {
   const [filmData, setfilmData] = useState([]);
 
   const handleSubmit = (film) => {
-    console.log(film);
     addToWatchlist(film);
-    console.log('this is working');
   }
   let { film_id } = useParams();
   const [recommendations, setRecommendations] = useState([]);
   const [filmToAdd, setFilmToAdd] = useState([]);
   async function getReccos(recommendations) {
-  console.log("this is working");
   const appId = "df18e230169160c88b27ae6a222d9b10";
   const recommendsUrl =
     `https://api.themoviedb.org/3/movie/${film_id}/recommendations?api_key=df18e230169160c88b27ae6a222d9b10&language=en-US&page=1`;
@@ -26,7 +23,6 @@ export default function Recommendations() {
       console.log(response);
       if (response.ok) {
         let data = await response.json();
-        console.log(data);
         setRecommendations(data.results);
       } else {
         console.log(`server error: ${response.status} ${response.statusText}`);
@@ -65,7 +61,6 @@ async function addToWatchlist(film) {
 }
 
 function showFilm(film) {
-  console.log(film);
   setfilmData(film);
   setFeatured(true);
 }

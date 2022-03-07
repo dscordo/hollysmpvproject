@@ -1,7 +1,15 @@
 import React from "react";
+import getProviders from "../helpers/getproviders";
 
 export default function RecModal (props) {
+    const [prov, setProv] = useState([]);
     let f = props.recFilm;
+
+    useEffect ( async () => {
+      let result = await getProviders(f)
+      setProv(result.flatrate);
+         }, []);
+
     return (
     <div className="recmodal">
       <div className="modal" tabindex="-1" style={{ display: 'block' }}>
@@ -22,6 +30,10 @@ export default function RecModal (props) {
           </div>
           <div className="col-4 col-sm-6">
           <p>{f.overview}</p>
+          <h6>Available in the following UK streaming platforms:</h6>
+        {/* <ul>
+          {prov.map(p => <li key={p.id}>{p.provider_name}</li>)}
+        </ul> */}
           </div>
       
       </div>
