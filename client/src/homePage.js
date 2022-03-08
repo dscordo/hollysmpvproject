@@ -49,8 +49,9 @@ export default function HomePage() {
       {filmList.map((film) => (
           <div className="col my-3">
         <div className="card text-center h-100" key={film.id}>
-          <img className="card-img-top" src={`https://image.tmdb.org/t/p/original${film.poster_path}`} />
           <div className="card-body">
+          <img className="card-img-top" src={`https://image.tmdb.org/t/p/original${film.poster_path}`} />
+          
           <h5 className="card-title">{film.title}</h5>
           {/* <p className="card-body">{film.overview}</p> */}
           </div>

@@ -1,13 +1,18 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import getProviders from "../helpers/getproviders";
 
 export default function RecModal (props) {
     const [prov, setProv] = useState([]);
+    const [unavail, setUnavail] = useState(false);
     let f = props.recFilm;
 
     useEffect ( async () => {
       let result = await getProviders(f)
-      setProv(result.flatrate);
+      if (result !== undefined) {
+        setProv(result.flatrate);
+       } else {
+        setUnavail(true);
+       }
          }, []);
 
     return (
@@ -21,22 +26,21 @@ export default function RecModal (props) {
       </div>
       <div className="modal-body">
       
-      <div className="container-fluid">
+      <div className="container-fluid text-center">
     
-      <div className="row">
+   
       
-          <div className="col-8 col-sm-6">
-          <img className="rounded float-start" style={{ width: '200px' }} src={`https://image.tmdb.org/t/p/original${f.poster_path}`} alt="" />
-          </div>
-          <div className="col-4 col-sm-6">
+          
+          <img className="float-start me-2" style={{ width: '200px' }} src={`https://image.tmdb.org/t/p/original${f.poster_path}`} alt="" />
+         
           <p>{f.overview}</p>
           <h6>Available in the following UK streaming platforms:</h6>
-        {/* <ul>
-          {prov.map(p => <li key={p.id}>{p.provider_name}</li>)}
-        </ul> */}
-          </div>
+        <ul>
+          {unavail === false && prov ? prov.map(p => <li key={p.id}>{p.provider_name}</li>) : <p>no flatrate streaming available in this area</p>}
+        </ul>
+         
       
-      </div>
+      
       </div>
 
       </div>
