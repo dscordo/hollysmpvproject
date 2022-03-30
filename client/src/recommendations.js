@@ -14,7 +14,7 @@ export default function Recommendations() {
   const [recommendations, setRecommendations] = useState([]);
   const [filmToAdd, setFilmToAdd] = useState([]);
   async function getReccos(recommendations) {
-  const appId = "df18e230169160c88b27ae6a222d9b10";
+  const appId = ""; //add your own API key here
   const recommendsUrl =
     `https://api.themoviedb.org/3/movie/${film_id}/recommendations?api_key=df18e230169160c88b27ae6a222d9b10&language=en-US&page=1`;
   

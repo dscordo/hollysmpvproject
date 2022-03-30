@@ -15,7 +15,7 @@ export default function HomePage() {
     // setError("Error, try again");
 
     
-    const appId = "df18e230169160c88b27ae6a222d9b10";
+    const appId = ""; //add your own API key here
     const topRatedFilmUrl =
       "https://api.themoviedb.org/3/movie/top_rated?api_key=df18e230169160c88b27ae6a222d9b10&language=en-US&page=1";
 
