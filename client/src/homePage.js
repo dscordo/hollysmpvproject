@@ -12,7 +12,6 @@ export default function HomePage() {
 
   async function getMovies(filmList) {
     setLoading(true);
-    // setError("Error, try again");
 
     
     const appId = ""; //add your own API key here
@@ -53,7 +52,6 @@ export default function HomePage() {
           <img className="card-img-top" src={`https://image.tmdb.org/t/p/original${film.poster_path}`} />
           
           <h5 className="card-title">{film.title}</h5>
-          {/* <p className="card-body">{film.overview}</p> */}
           </div>
           <div className="card-footer">
           <Link to={`/recommendations/${film.id}`}>

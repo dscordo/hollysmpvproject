@@ -13,6 +13,7 @@ export default function Recommendations() {
   let { film_id } = useParams();
   const [recommendations, setRecommendations] = useState([]);
   const [filmToAdd, setFilmToAdd] = useState([]);
+  
   async function getReccos(recommendations) {
   const appId = ""; //add your own API key here
   const recommendsUrl =
@@ -76,7 +77,6 @@ return (
         <img class="card-img-top" src = {`https://image.tmdb.org/t/p/original${film.poster_path}`} />
         <div class="card-body">
         <h5 class="card-title">{film.title}</h5>
-        {/* <p class="card-body">{film.overview}</p> */}
         </div>
         <div class="card-footer">
         <Link to={`/recommendations/${film.id}`}>
